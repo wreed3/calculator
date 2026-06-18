@@ -1,27 +1,30 @@
 .component-button {
   display: inline-flex;
-  width: 25%;
   flex: 1 0 auto;
-}
-
-.component-button.wide {
-  width: 50%;
 }
 
 .component-button button {
   background-color: #e0e0e0;
   border: 0;
-  font-size: 1.5rem;
-  margin: 0 1px 0 0;
+  font-size: 18px;
+  margin: 0;
   flex: 1 0 auto;
-  padding: 0;
+  padding: 15px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  font-family: inherit;
 }
 
-.component-button:last-child button {
-  margin-right: 0;
+.component-button button:hover {
+  background-color: #d0d0d0;
 }
 
-.component-button.orange button {
-  background-color: #f5923e;
-  color: white;
+.component-button button:active {
+  transform: translateY(1px);
+}
+
+.component-button button:focus {
+  outline: 2px solid #4CAF50;
+  outline-offset: 2px;
 }

@@ -1,14 +1,68 @@
 .component-button-panel {
-  background-color: #858694;
+  background-color: #f5f5f5;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
 }
 
-.component-button-panel > div {
-  width: 100%;
-  margin-bottom: 1px;
-  flex: 1 0 auto;
+.button-row {
   display: flex;
+  gap: 5px;
+}
+
+.button-row > * {
+  flex: 1;
+}
+
+/* Button type styles */
+.function-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.function-button:hover {
+  background-color: #d0d0d0;
+}
+
+.memory-button {
+  background-color: #fff3cd;
+  color: #856404;
+  font-weight: bold;
+}
+
+.memory-button:hover {
+  background-color: #ffeaa7;
+}
+
+.operator-button {
+  background-color: #ff9500;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.operator-button:hover {
+  background-color: #ff8000;
+}
+
+.equals-button {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.equals-button:hover {
+  background-color: #45a049;
+}
+
+.clear-button {
+  background-color: #f44336;
+  color: white;
+  font-weight: bold;
+}
+
+.clear-button:hover {
+  background-color: #da190b;
 }
