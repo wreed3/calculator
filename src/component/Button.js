@@ -4,10 +4,10 @@ import "./Button.css";
 
 export default class Button extends React.Component {
   static propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     orange: PropTypes.bool,
     wide: PropTypes.bool,
-    clickHandler: PropTypes.func,
+    clickHandler: PropTypes.func.isRequired,
   };
 
   handleClick = () => {
@@ -15,15 +15,43 @@ export default class Button extends React.Component {
   };
 
   render() {
+    const { name, orange, wide } = this.props;
     const className = [
       "component-button",
-      this.props.orange ? "orange" : "",
-      this.props.wide ? "wide" : "",
-    ];
+      orange ? "orange" : "",
+      wide ? "wide" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    // Determine appropriate aria-label
+    const ariaLabel = {
+      "AC": "All Clear",
+      "CE": "Clear Entry", 
+      "+/-": "Plus Minus",
+      "%": "Percent",
+      "÷": "Divide",
+      "×": "Multiply",
+      "-": "Subtract",
+      "+": "Add",
+      "=": "Equals",
+      ".": "Decimal point",
+    }[name] || `Number ${name}`;
 
     return (
-      <div className={className.join(" ").trim()}>
-        <button onClick={this.handleClick}>{this.props.name}</button>
+      <div
+        className={className}
+        onClick={this.handleClick}
+        role="button"
+        tabIndex={0}
+        aria-label={ariaLabel}
+        onKeyPress={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            this.handleClick();
+          }
+        }}
+      >
+        {name}
       </div>
     );
   }

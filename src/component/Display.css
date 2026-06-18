@@ -1,13 +1,86 @@
 .component-display {
-  background-color: #858694;
-  color: white;
+  background: var(--display-bg);
+  color: var(--display-text);
   text-align: right;
   font-weight: 200;
   flex: 0 0 auto;
   width: 100%;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
-.component-display > div {
+.display-expression {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  min-height: 1.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) transparent;
+}
+
+.display-expression::-webkit-scrollbar {
+  height: 4px;
+}
+
+.display-expression::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.display-expression::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 2px;
+}
+
+.display-value {
   font-size: 2.5rem;
-  padding: 0.2rem 0.7rem 0.1rem 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--display-text) transparent;
+  animation: fadeIn 0.2s ease;
+}
+
+.display-value::-webkit-scrollbar {
+  height: 6px;
+}
+
+.display-value::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.display-value::-webkit-scrollbar-thumb {
+  background: var(--display-text);
+  border-radius: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .component-display {
+    padding: 1rem;
+    min-height: 100px;
+  }
+
+  .display-expression {
+    font-size: 0.875rem;
+  }
+
+  .display-value {
+    font-size: 2rem;
+  }
 }

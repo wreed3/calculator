@@ -1,27 +1,56 @@
 .component-button {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 25%;
-  flex: 1 0 auto;
+  height: 4em;
+  background: var(--button-bg);
+  border: 1px solid var(--border-color);
+  color: var(--button-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.component-button.wide {
+.component-button:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.02);
+}
+
+.component-button:active {
+  background: var(--button-active-bg);
+  transform: scale(0.98);
+}
+
+.component-button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.orange {
+  background: var(--operator-bg);
+  color: var(--operator-text);
+  font-weight: 500;
+}
+
+.orange:hover {
+  background: var(--operator-hover-bg);
+}
+
+.orange:active {
+  background: var(--operator-active-bg);
+}
+
+.wide {
   width: 50%;
 }
 
-.component-button button {
-  background-color: #e0e0e0;
-  border: 0;
-  font-size: 1.5rem;
-  margin: 0 1px 0 0;
-  flex: 1 0 auto;
-  padding: 0;
-}
-
-.component-button:last-child button {
-  margin-right: 0;
-}
-
-.component-button.orange button {
-  background-color: #f5923e;
-  color: white;
+@media (max-width: 480px) {
+  .component-button {
+    height: 3.5em;
+    font-size: 1.25rem;
+  }
 }

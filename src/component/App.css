@@ -1,6 +1,96 @@
-.component-app {
+.app-container {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100%;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  align-items: flex-start;
+}
+
+.component-app {
+  flex: 0 0 auto;
+  width: 400px;
+  background: var(--calculator-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.component-app:hover {
+  box-shadow: 0 12px 48px var(--shadow-color-hover);
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calculator-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.theme-toggle {
+  background: var(--button-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.keyboard-hint {
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  background: var(--hint-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .component-app {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .component-app {
+    width: 100%;
+  }
+
+  .calculator-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .keyboard-hint {
+    font-size: 0.65rem;
+    padding: 0.75rem 1rem;
+  }
 }

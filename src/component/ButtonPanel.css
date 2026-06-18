@@ -1,14 +1,14 @@
 .component-button-panel {
-  background-color: #858694;
+  background: var(--panel-bg);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   flex: 1 0 auto;
+  border-top: 1px solid var(--border-color);
 }
 
-.component-button-panel > div {
-  width: 100%;
-  margin-bottom: 1px;
-  flex: 1 0 auto;
-  display: flex;
+@media (max-width: 480px) {
+  .component-button-panel {
+    min-height: auto;
+  }
 }
